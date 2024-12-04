@@ -13,7 +13,7 @@ app.get('/add', (req, res) => {
     res.redirect(minecraftLink);
 });
 
-const port = process.env.PORT || 3001
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
