@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-// const port = 4100;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -13,3 +12,11 @@ app.get('/add', (req, res) => {
     const minecraftLink = `minecraft://?addExternalServer=${encodeURIComponent(nome)}|${encodeURIComponent(ip)}:${encodeURIComponent(porta)}`;
     res.redirect(minecraftLink);
 });
+
+const port = process.env.PORT || 3001
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+module.exports = app
