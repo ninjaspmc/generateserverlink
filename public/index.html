@@ -382,7 +382,7 @@ showNotification("Link gerado com sucesso!");
 }
         function copyLink(link) {
             // Copiar o link para a área de transferência
-            navigator.clipboard.writeText(link).then(() => {
+            navigator.clipboard.writeText(decodeURIComponent(link)).then(() => {
                 alert("Link copiado!");
             });
         }

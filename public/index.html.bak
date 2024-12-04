@@ -355,8 +355,6 @@ function encode(input) {
     .map(char => encodeURIComponent(char)) // Codifica cada caractere
     .join("");                       // Junta tudo de volta
 }
-const result = encodeSpecialCharacters("Olá, Mundo! Çãõ $%#'+");
-console.log(result);  // "Ola%2C%20Mundo%21%20Cao%20%24%25%23%27%2B"
   function gerarLink() {   
     const nome = document.getElementById('nome').value.trim();
     const ip = document.getElementById('ip').value.trim();
@@ -384,7 +382,7 @@ showNotification("Link gerado com sucesso!");
 }
         function copyLink(link) {
             // Copiar o link para a área de transferência
-            navigator.clipboard.writeText(link).then(() => {
+            navigator.clipboard.writeText(decodeURIComponent(link).then(() => {
                 alert("Link copiado!");
             });
         }
