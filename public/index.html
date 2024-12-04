@@ -356,7 +356,7 @@ function showNotification(message) {
         return;                 
     }     
 showNotification("Link gerado com sucesso!");      
-    const link = `http://generateserverlink.vercel.app/add?nome=${encodeURIComponent(nome)}&ip=${ip.replace("https://", "")}&porta=${porta}`;
+    const link = `http://generateserverlink.onrender.com/add?nome=${encodeURIComponent(nome).replace(/'/g, "")}&ip=${ip.replace("https://", "")}&porta=${porta}`;
 
     document.getElementById('result').innerHTML = `
         <div class="result-container">
