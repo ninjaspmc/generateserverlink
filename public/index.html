@@ -347,14 +347,6 @@ function showNotification(message) {
         }, 500);
     }, 5000); 
 }
-function encode(input) {
-  return input
-    .normalize("NFD")                // Remove acentos separando-os das letras
-    .replace(/[\u0300-\u036f]/g, "") // Remove os acentos
-    .split("")                       // Divide a string em caracteres individuais
-    .map(char => encodeURIComponent(char)) // Codifica cada caractere
-    .join("");                       // Junta tudo de volta
-}
   function gerarLink() {   
     const nome = document.getElementById('nome').value.trim();
     const ip = document.getElementById('ip').value.trim();
@@ -364,7 +356,7 @@ function encode(input) {
         return;                 
     }     
 showNotification("Link gerado com sucesso!");      
-    const link = `http://generateserverlink.vercel.app/add?nome=${encode(nome)}&ip=${ip.replace("https://", "")}&porta=${porta}`;
+    const link = `http://generateserverlink.vercel.app/add?nome=${encodeURIComponent(nome)}&ip=${ip.replace("https://", "")}&porta=${porta}`;
 
     document.getElementById('result').innerHTML = `
         <div class="result-container">
